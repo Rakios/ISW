@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+ 
 package my.isw;
-
+ 
 /**
  *
  * @author Loucry
@@ -17,7 +17,8 @@ public class IReservacion extends Controlador {
      */
     public IReservacion() {
         initComponents();
-        Confirmar.setEnabled(false);
+      //  Confirmar.setEnabled(false);
+        jcal2.setEnabled(false);
     }
 
     /**
@@ -33,17 +34,21 @@ public class IReservacion extends Controlador {
         Regresar = new javax.swing.JButton();
         Confirmar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        Label_Ruta = new javax.swing.JLabel();
-        Label_Fecha = new javax.swing.JLabel();
-        Label_NumeroAsientos = new javax.swing.JLabel();
-        AsientosTextField = new javax.swing.JTextField();
-        FechaTextField = new javax.swing.JTextField();
-        RutaTextField = new javax.swing.JTextField();
         jCheckBox_IdaYVuelta = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        OK = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        co = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        cd = new javax.swing.JTextField();
+        jcal1 = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jcal2 = new com.toedter.calendar.JDateChooser();
+        ass = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -66,23 +71,26 @@ public class IReservacion extends Controlador {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Hacer Reservación"));
 
-        Label_Ruta.setText("Ruta a Reservar");
-
-        Label_Fecha.setText("Fecha");
-
-        Label_NumeroAsientos.setText("Número de Asientos");
-
-        FechaTextField.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox_IdaYVuelta.setText("Ida y Vuelta");
+        jCheckBox_IdaYVuelta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FechaTextFieldActionPerformed(evt);
+                jCheckBox_IdaYVueltaActionPerformed(evt);
             }
         });
-
-        jCheckBox_IdaYVuelta.setText("Ida y Vuelta");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel1.setText("Ciudad Origen");
+
+        jLabel2.setText("Cantidad de Asientos");
+
+        jLabel3.setText("Ciudad Destino");
+
+        jLabel5.setText("Fecha  Ida");
+
+        jLabel6.setText("Fecha Vuelta");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,53 +102,65 @@ public class IReservacion extends Controlador {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jCheckBox_IdaYVuelta))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Label_Ruta)
-                            .addComponent(Label_Fecha))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FechaTextField)
-                            .addComponent(RutaTextField)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Label_NumeroAsientos)
-                        .addGap(18, 18, 18)
-                        .addComponent(AsientosTextField)))
+                        .addComponent(jCheckBox_IdaYVuelta)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(co)
+                    .addComponent(cd)
+                    .addComponent(jcal1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(jcal2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ass))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label_Ruta)
-                    .addComponent(RutaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(co, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label_Fecha)
-                    .addComponent(FechaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jcal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Label_NumeroAsientos)
-                    .addComponent(AsientosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jcal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jCheckBox_IdaYVuelta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        OK.setText("OK");
-        OK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OKActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Borrar Campos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -154,9 +174,9 @@ public class IReservacion extends Controlador {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Regresar)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(OK)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Confirmar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
@@ -166,14 +186,14 @@ public class IReservacion extends Controlador {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Regresar)
                     .addComponent(Confirmar)
-                    .addComponent(OK)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -183,6 +203,31 @@ public class IReservacion extends Controlador {
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
         this.dispose();
         new IComprobante().setVisible(true);
+        String FechaIDA,FechaVUELTA;
+        String CiudadO,CiudadD;
+        boolean IdaYVuelta;
+        int Asientos;
+
+        IdaYVuelta = jCheckBox_IdaYVuelta.isSelected();
+        if (IdaYVuelta == true){
+         FechaIDA = jcal1.getDateFormatString();
+         FechaVUELTA = jcal2.getDateFormatString();
+        // asientos = ass.get
+         CiudadO = co.getText();
+         CiudadD = cd.getText();
+        
+        }else{
+         FechaIDA = jcal1.getDateFormatString();
+        //FechaVUELTA = jcal2.getDateFormatString();
+        // asientos = ass.get
+         CiudadO = co.getText();
+         CiudadD = cd.getText();
+            
+            
+            
+        }
+        
+        
     }//GEN-LAST:event_ConfirmarActionPerformed
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
@@ -194,51 +239,56 @@ public class IReservacion extends Controlador {
         }
     }//GEN-LAST:event_RegresarActionPerformed
 
-    private void FechaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FechaTextFieldActionPerformed
-
-    private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
-        String Fecha, Ruta, IdaYVueltaS = "";
-        boolean IdaYVuelta;
-        int Asientos;
-        
-        Asientos = Integer.parseInt(AsientosTextField.getText());
-        Fecha = FechaTextField.getText();
-        Ruta = RutaTextField.getText();
-        IdaYVuelta = jCheckBox_IdaYVuelta.isSelected();
-        if (IdaYVuelta){
-            IdaYVueltaS = "Ida y Vuelta";
-        }
-        AsientosTextField.setText("");
-        FechaTextField.setText("");
-        RutaTextField.setText("");
-        
-        jTextArea1.setText ("Ruta " + Ruta + ", " + Asientos + " Asientos, " + Fecha + " " + IdaYVueltaS + "\n"); 
-        Confirmar.setEnabled(true);
-    }//GEN-LAST:event_OKActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jCheckBox_IdaYVueltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_IdaYVueltaActionPerformed
+        // TODO add your handling code here:
+        
+                boolean IdaYVuelta1;
+        int Asientos;
+        
+        IdaYVuelta1 = jCheckBox_IdaYVuelta.isSelected();
+        if (IdaYVuelta1 == true){
+         jcal2.setEnabled(true);
+        }else{
+         jcal2.setEnabled(false);
+            
+        }
+    }//GEN-LAST:event_jCheckBox_IdaYVueltaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        co.setText("");
+        cd.setText("");
+        jcal1.setDateFormatString("");
+        jcal2.setDateFormatString("");
+        ass.setText("");
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AsientosTextField;
     private javax.swing.JButton Confirmar;
-    private javax.swing.JTextField FechaTextField;
-    private javax.swing.JLabel Label_Fecha;
-    private javax.swing.JLabel Label_NumeroAsientos;
-    private javax.swing.JLabel Label_Ruta;
-    private javax.swing.JButton OK;
     private javax.swing.JButton Regresar;
-    private javax.swing.JTextField RutaTextField;
+    private javax.swing.JTextField ass;
+    private javax.swing.JTextField cd;
+    private javax.swing.JTextField co;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox_IdaYVuelta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private com.toedter.calendar.JDateChooser jcal1;
+    private com.toedter.calendar.JDateChooser jcal2;
     // End of variables declaration//GEN-END:variables
 }

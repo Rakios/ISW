@@ -6,7 +6,12 @@
 
 package my.isw;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 /**
  *
@@ -41,9 +46,32 @@ public class Controlador extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 FileReader fr = null; 
-                BufferedReader br = null; 
-                String path = ("ciudadesVzla.txt");
-                
+                BufferedReader br = null;
+                Scanner in = null;
+                String path = ("src/files/ciudadesVzla.txt");
+                try {
+                    fr = new FileReader (path);
+                    br = new BufferedReader(fr);
+                    in = new Scanner (fr);
+                }catch (FileNotFoundException e){
+                    System.out.println ("File Not Found");
+                }finally{
+                    // En el finally cerramos el fichero, para asegurarnos
+                    // que se cierra tanto si todo va bien como si salta 
+                    // una excepcion.
+                    try{
+                        if( null != in ){   
+                            in.close();     
+                        }
+                        if( null != br ){   
+                            br.close();     
+                        }
+                        if( null != fr ){   
+                            fr.close();     
+                        }
+                    }catch (IOException e2){ 
+                    }
+                }
                 
                 
                 new IInicio().setVisible(true);

@@ -5,6 +5,8 @@
  */
 
 package my.isw;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javax.swing.JOptionPane;
 /**
  *
@@ -38,6 +40,11 @@ public class Controlador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                FileReader fr = null; 
+                BufferedReader br = null; 
+                String path = ("ciudadesVzla.txt");
+                
+                
                 
                 new IInicio().setVisible(true);
                 

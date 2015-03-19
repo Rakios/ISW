@@ -10,6 +10,6 @@ package my.isw;
  *
  * @author Loucry
  */
-public class Rutas extends Reservacion {
+public class Rutas {
     
 }

@@ -19,6 +19,13 @@ import javax.swing.JOptionPane;
  */
 public class Controlador extends javax.swing.JFrame {
     protected static boolean admin;
+    
+    public void Error (String Mensaje){
+        IError Ventana = new IError();
+        Ventana.setVisible(true);
+        Ventana.Mensaje.setText(Mensaje);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -72,6 +79,16 @@ public class Controlador extends javax.swing.JFrame {
                     }catch (IOException e2){ 
                     }
                 }
+                String NombresLista [] = new String [4];
+                NombresLista[0] = "Oriente";
+                NombresLista[1] = "Occidente";
+                NombresLista[2] = "Los Andes";
+                NombresLista[3] = "Guayana";
+                Lista Listas[] = new Lista [4];
+                for (int i = 0; i < 4; i++){
+                    Listas [i] = new Lista(NombresLista[i]);
+                }
+                
                 
                 
                 new IInicio().setVisible(true);

@@ -10,6 +10,6 @@ package my.isw;
  *
  * @author Loucry
  */
-public class Agenda extends Controlador{
+public class Agenda {
     // AGREGADA ESTA NUEVA NOTA
 }

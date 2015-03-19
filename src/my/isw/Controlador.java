@@ -19,6 +19,13 @@ import javax.swing.JOptionPane;
  */
 public class Controlador extends javax.swing.JFrame {
     protected static boolean admin;
+    
+    public void Error (String Mensaje){
+        IError Ventana = new IError();
+        Ventana.setVisible(true);
+        Ventana.Mensaje.setText(Mensaje);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

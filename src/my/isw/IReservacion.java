@@ -5,6 +5,8 @@
  */
  
 package my.isw;
+import java.util.Calendar;
+import java.util.Locale;
  
 /**
  *
@@ -17,8 +19,9 @@ public class IReservacion extends Controlador {
      */
     public IReservacion() {
         initComponents();
-      //  Confirmar.setEnabled(false);
+      //  
         jcal2.setEnabled(false);
+        Confirmar.setEnabled(false);
     }
 
     /**
@@ -32,7 +35,6 @@ public class IReservacion extends Controlador {
 
         jLabel4 = new javax.swing.JLabel();
         Regresar = new javax.swing.JButton();
-        Confirmar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jCheckBox_IdaYVuelta = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -47,8 +49,10 @@ public class IReservacion extends Controlador {
         jLabel6 = new javax.swing.JLabel();
         jcal2 = new com.toedter.calendar.JDateChooser();
         ass = new javax.swing.JTextField();
+        ok = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Confirmar = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -59,13 +63,6 @@ public class IReservacion extends Controlador {
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarActionPerformed(evt);
-            }
-        });
-
-        Confirmar.setText("Confirmar");
-        Confirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmarActionPerformed(evt);
             }
         });
 
@@ -92,34 +89,45 @@ public class IReservacion extends Controlador {
 
         jLabel6.setText("Fecha Vuelta");
 
+        ok.setText("Ok");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jCheckBox_IdaYVuelta)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(co)
+                            .addComponent(cd)
+                            .addComponent(jcal1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(jcal2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ass))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCheckBox_IdaYVuelta))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(145, 145, 145)))))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(co)
-                    .addComponent(cd)
-                    .addComponent(jcal1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(jcal2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ass))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,10 +151,12 @@ public class IReservacion extends Controlador {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jCheckBox_IdaYVuelta)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCheckBox_IdaYVuelta)))
                 .addGap(18, 18, 18)
+                .addComponent(ok)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -164,6 +174,13 @@ public class IReservacion extends Controlador {
             }
         });
 
+        Confirmar.setText("Confirmar");
+        Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConfirmarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,13 +191,13 @@ public class IReservacion extends Controlador {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Regresar)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Confirmar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addComponent(jButton1)
-                        .addGap(12, 12, 12)))
+                        .addGap(14, 14, 14)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -191,30 +208,64 @@ public class IReservacion extends Controlador {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Regresar)
-                    .addComponent(Confirmar)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(Confirmar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public boolean validarFecha() {
+            Calendar fecha = Calendar.getInstance();
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        mes = mes +1;
+        String a,b,c,d;
+        a = Integer.toString(dia);
+        b = Integer.toString(mes);
+        c = Integer.toString(año);
+        d = "";
+        if ( dia > 9 && mes <=9 ) {
+        d = a + "/0" + b + "/" + c; // FECHA ACTUAL EN STRING
+        }
+        if ( dia <= 9 && mes <=9 ) {
+        d ="0" + a + "/0" + b + "/" + c; // FECHA ACTUAL EN STRING
+        }
+        if ( dia > 9 && mes > 9 ) {
+        d = a + "/" + b + "/" + c; // FECHA ACTUAL EN STRING
+        }
+         if ( dia <= 9 && mes > 9 ) {
+        d ="0" + a + "/" + b + "/" + c; // FECHA ACTUAL EN STRING
+        } 
+        co.setText(d);
+        
+        return true;
+}
+    
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
 
-    private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
-        this.dispose();
-        new IComprobante().setVisible(true);
         String FechaIDA,FechaVUELTA;
         String CiudadO,CiudadD;
         boolean IdaYVuelta;
+        boolean ACTIVAR;
         int Asientos;
-
+        boolean activar = true;
         IdaYVuelta = jCheckBox_IdaYVuelta.isSelected();
+        
         if (IdaYVuelta == true){
          FechaIDA = jcal1.getDateFormatString();
          FechaVUELTA = jcal2.getDateFormatString();
         // asientos = ass.get
          CiudadO = co.getText();
          CiudadD = cd.getText();
+         
+         if (activar) { 
+         Confirmar.setEnabled(true);
+         }else{
+         Confirmar.setEnabled(false);
+         }
         
         }else{
          FechaIDA = jcal1.getDateFormatString();
@@ -222,13 +273,19 @@ public class IReservacion extends Controlador {
         // asientos = ass.get
          CiudadO = co.getText();
          CiudadD = cd.getText();
-            
-            
-            
+         
+         if (activar) {
+         Confirmar.setEnabled(true);
+         }else{
+         Confirmar.setEnabled(false);
+         }
+
         }
         
+ 
+
         
-    }//GEN-LAST:event_ConfirmarActionPerformed
+    }//GEN-LAST:event_okActionPerformed
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
         this.dispose();
@@ -255,7 +312,7 @@ public class IReservacion extends Controlador {
          jcal2.setEnabled(true);
         }else{
          jcal2.setEnabled(false);
-            
+          
         }
     }//GEN-LAST:event_jCheckBox_IdaYVueltaActionPerformed
 
@@ -268,6 +325,12 @@ public class IReservacion extends Controlador {
         ass.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new IComprobante().setVisible(true);
+    }//GEN-LAST:event_ConfirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,5 +353,6 @@ public class IReservacion extends Controlador {
     private javax.swing.JTextArea jTextArea1;
     private com.toedter.calendar.JDateChooser jcal1;
     private com.toedter.calendar.JDateChooser jcal2;
+    private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

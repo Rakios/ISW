@@ -6,10 +6,18 @@
 
 package my.isw;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Loucry
  */
-public class Reservacion {
+public class Lista {
+    private String Nombre;
+    private int NRutas;
+    ArrayList <Rutas> RutasList;
     
+    public Lista(String name){
+        Nombre = name;
+    }
 }

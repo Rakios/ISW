@@ -19,5 +19,7 @@ public class Lista {
     
     public Lista(String name){
         Nombre = name;
+        NRutas = 0;
+        RutasList = new ArrayList <>();
     }
 }

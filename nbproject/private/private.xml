@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ARLI/Documents/GitHub/ISW/src/my/isw/IRutas_Admin.java</file>
             <file>file:/C:/Users/ARLI/Documents/GitHub/ISW/src/my/isw/IMenu_Admin.java</file>
+=======
+            <file>file:/C:/Users/Loucry/Downloads/ISW/GitHub/ISW/src/my/isw/Reservacion.java</file>
+            <file>file:/C:/Users/Loucry/Downloads/ISW/GitHub/ISW/src/my/isw/Rutas.java</file>
+            <file>file:/C:/Users/Loucry/Downloads/ISW/GitHub/ISW/src/my/isw/Lista.java</file>
+            <file>file:/C:/Users/Loucry/Downloads/ISW/GitHub/ISW/src/my/isw/Controlador.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>
